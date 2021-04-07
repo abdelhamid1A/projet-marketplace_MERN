@@ -29,7 +29,7 @@ export default function SuspendAccount(props) {
                 <td>{adsList.startDate}</td>
                 <td>{adsList.endDate}</td>
                 <td>
-                    <button className="btn btn-danger" onClick={()=>deletAds(adsList._id)}>Suspend Account </button>
+                    <button className="btn btn-danger" onClick={()=>deletAds(adsList._id)}>delete </button>
                 </td>
                 </tr>
             }

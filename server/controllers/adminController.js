@@ -1,5 +1,6 @@
 require("dotenv").config();
 const Admin = require("../models/Admin");
+const Order = require("../models/order");
 const Type = require("../models/Type");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
@@ -98,6 +99,43 @@ class AdminController {
     } catch (error) {
       console.log(error);
     }
+  }
+  async getAllOrders(req,res){
+   try {
+    const orders = await Order.aggregate([
+      {
+        $lookup:
+          {
+            from: "products",
+            localField: "id_product",
+            foreignField: "_id",
+            as: "product"
+          }
+     },
+     {
+      $lookup:
+      {
+        from: "sellers",
+        localField: "id_seller",
+        foreignField: "_id",
+        as: "seller"
+      }
+     },
+     {
+      $lookup:
+      {
+        from: "users",
+        localField: "id_buyer",
+        foreignField: "_id",
+        as: "buyer"
+      } 
+     }
+   ])
+  // const orders = await Order.find()
+   res.status(200).send(orders)
+   } catch (error) {
+     console.log(error);
+   }
   }
 }
 

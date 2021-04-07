@@ -6,6 +6,7 @@ import AddAds from './addAds'
 import ManageAds from './manageAds'
 import ManageSeller from './manageSeller'
 import ValidatSeller from './validatSeller'
+import Order from './Orders'
 import jwt from 'jwt-decode'
 import {
     Switch,
@@ -72,6 +73,9 @@ export default function AdminDashboard() {
                     <li className="m-3">
                         <Link to={`${url}/manage-ads`}><i className="fa fa-cog"></i> manage Ads</Link>
                     </li>
+                    <li className="m-3">
+                        <Link to={`${url}/order`}><i className="fa fa-cog"></i> Orders</Link>
+                    </li>
                 </ul>
             </div>
 
@@ -98,10 +102,13 @@ export default function AdminDashboard() {
                 <Route exact path={`${url}/manage-ads`}>
                     <ManageSeller />
                 </Route>
+                <Route exact path={`${url}/order`}>
+                    <Order />
+                </Route>
                 </div>
                 
             
-        }
+            }
                 <Route exact path={`${url}/validate-seller`}>
                     <ValidatSeller />
                 </Route>

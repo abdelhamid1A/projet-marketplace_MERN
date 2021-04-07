@@ -25,7 +25,6 @@ export default function ProductItems(props) {
                 <td>{productList.price}</td>
                 <td>{productList.category[0].name}</td>
                 <td>
-                    <button className="btn btn-warning mx-2" >upadate</button>
                     <button className="btn btn-danger" onClick={()=>deleteProduct(productList._id)}>delete </button>
                 </td>
                 </tr>

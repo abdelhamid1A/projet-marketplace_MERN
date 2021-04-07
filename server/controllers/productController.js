@@ -115,9 +115,7 @@ class productController{
                     foreignField: "_id",
                     as: "category"
                     }
-                },
-                { $sort: { total: -1 } },
-                { $limit : 1 }
+                }
                 
             ])
             res.status(200).send(products);
