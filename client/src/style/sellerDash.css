@@ -1,0 +1,32 @@
+.category {
+    background-color: #2855a6;
+    /* height: 100vh; */
+    min-height: 100vh;
+}
+
+ul {
+    list-style: none;
+}
+
+li {
+    white-space: nowrap;
+}
+.info{
+    background-color: #e0e4e7;
+}
+.profil_image{
+    width: 50%;
+    height: 50%;
+    border-radius: 50%;
+}
+.info-name{
+    font-family: 'Redressed', cursive;
+    font-size: 22px;
+}
+.info-email{
+    color: #2855a6;
+}
+.img-sale{
+    height: 150px;
+    width: 150px;
+}

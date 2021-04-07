@@ -1,0 +1,10 @@
+.home{
+    background-image: url('../img/bg.jpg');
+    background-size:cover ;
+    background-position: center ;
+    font-family: poppins;
+    height: 82vh;
+    font-weight: 600;
+    font-size: 16px;
+    
+}

@@ -1,0 +1,78 @@
+.main{
+    background-image: url('../img/bg.jpg');
+    background-size:cover ;
+    background-position: center ; 
+    height: 82vh;
+}
+.form-section{
+    width: 400px;
+    height: 420px;
+    color: #000;
+    top: 50%;
+    left: 50%;
+    padding: 60px 30px;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    box-sizing: border-box;
+    box-shadow: 8px 8px 50px #000;
+    background-image: url('../img/bg.jpg');
+    background-size:cover ;
+    background-position: center ;
+    font-family: poppins;
+    height: 82vh;
+}
+h1{
+    margin: 0;
+    padding: 0;
+    font-size: 22px;
+    font-weight: bold;
+    color: #fff;
+    text-align: center;
+}
+.form-section input[type=text], .form-section input[type=password]{
+    width: 100%;
+    margin-bottom: 20px;
+    border: none;
+    border-bottom: 1px solid #006C87;
+    background: transparent;
+    height: 30px;
+    font-size: 16px;
+    outline: none;
+    color: #ccc;
+}
+.form-section input[type=submit]{
+    width: 100%;
+    margin-bottom: 20px;
+    border: none;
+    outline: none;
+    height: 40px;
+    background: #006C87;
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 5px;
+}
+.form-section a{
+    font-size: 14px;
+    text-decoration: none;
+    color: #fff;
+    opacity: 0.8;
+}
+.form-section a:hover{
+    font-size: 16px;
+    opacity: 1;
+    transition: ease-in-out 0.5s;
+}
+
+.form-section input[type=radio]{
+    margin: 0 0 15px 20px;
+    display: inline-block;
+    outline: none;
+}
+.form-section label{
+    color: #fff;
+    margin-left: 4px;
+}
+.errMessage{
+    color: #ff0033;
+}
