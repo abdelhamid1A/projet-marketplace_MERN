@@ -68,7 +68,7 @@ class UserController {
                     bcrypt.compare(password, findUser.password, (err, result) => {
                         if (result)  {
                             const token = jwt.sign({_id:findUser._id,address:findUser.address},process.env.JWT_KEY)
-                            res.status(200).json({token})
+                            res.status(200).json({token:token,devise:findUser.devise})
                         }else{
                             res.status(401).json({message : 'email or password incorect'})
                         }

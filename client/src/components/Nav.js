@@ -1,12 +1,26 @@
 import React from 'react'
 import '../style/App.css'
 import logo from '../img/lg.png';
-import {Link} from 'react-router-dom'
+import {Link,useHistory} from 'react-router-dom'
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import {connect} from 'react-redux'
 
 function Nav(props) {
+    const history = useHistory()
     console.log(props.item);
+    const token = localStorage.getItem('token')
+    function logOut(){
+        localStorage.removeItem('token')
+        window.location.reload();
+        history.push('/')
+    }
+    // React.useEffect(() => {
+    //     if(token){
+    //         history.push('/products')
+    //     }else{
+    //         history.push('/')
+    //     }
+    // }, [token,history])
     return (
         <HelmetProvider >
             <div className="navbarr">
@@ -42,12 +56,15 @@ function Nav(props) {
                         <ul className="nav-erea">
                             <li><Link to="/">Home</Link></li>
                             <li><Link to="/product">Product</Link></li>
-                            <li><Link to="/cart"><i className="fa fa-shopping-cart"></i> {props.item}</Link></li>
+                            {/* <li><Link to="/cart"><i className="fa fa-shopping-cart"></i> {props.item}</Link></li> */}
                             {/* <li><Link to="">Contact</Link></li> */}
                             <li ><div  id="google_translate_element"></div></li>
                         </ul>
                         </nav>
-                        <Link to="/signIn" className="btn-area">login</Link>
+                        {token ?
+                        <button  className="btn-area" onClick={()=>logOut()}>logout</button>
+                        :<Link to="/signIn" className="btn-area" >login</Link>
+                        }
                 </header>
             </div>
         </HelmetProvider>

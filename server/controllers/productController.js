@@ -7,96 +7,34 @@ const mongoose = require('mongoose')
 class productController{
 
     async productRegister (req, res, next) {
-        // console.log(req.body);
-        // // console.log(req.files);
-        // // console.log(req.files);
-        // const token = req.header("auth-token");
-        // const id_seller = jwt.verify(token, process.env.SELLER_TOKEN)._id;
-        // // console.log(req.files[0]);
-        // var pictures =[]
-        // for (let i = 0; i < req.files.length; i++) {
-        //     pictures.push(req.files[i].filename)
-            
-        // }
-        // // console.log(pictures)
-        // const newProduct = new Product({
-        //     name: req.body.name,
-        //     description: req.body.description,
-        //     id_category: req.body.id_category,
-        //     id_seller: id_seller,
-        //     price: req.body.price,
-        //     picture: pictures,
-        // });
-        // try {
-        //     const product = await newProduct.save();
-        //     res.status(201).send(product);
-        // } catch (error) {
-        //     res.status(400).send({ message: error.message });
-        // }
+        console.log(req.body);
+        // console.log(req.files);
+        // console.log(req.files);
         const token = req.header("auth-token");
         const id_seller = jwt.verify(token, process.env.SELLER_TOKEN)._id;
-
-        const seller = await Seller.findOne({ _id: id_seller });
-
-        if (seller.type === "Starter" && seller.productsCount < 10) {
-            const newProduct = new Product({
-            name: req.body.name,
-            description: req.body.description,
-            id_category: req.body.id_category,
-            id_seller: id_seller,
-            price: req.body.price,
-            picture: req.files[0].filename,
-            });
-
-            seller.productsCount += 1;
-            try {
-            const product = await newProduct.save();
-            const updatedSeller = await seller.save();
-            res.status(201).send(product);
-            } catch (error) {
-            res.status(400).send({ message: error.message });
-            }
-        } else if (seller.type === "Pro" && seller.productsCount < 50) {
-            const newProduct = new Product({
-            name: req.body.name,
-            description: req.body.description,
-            id_category: req.body.id_category,
-            id_seller: id_seller,
-            price: req.body.price,
-            picture: req.files[0].filename,
-            isBuyed: false,
-            });
-
-            seller.productsCount += 1;
-            try {
-            const product = await newProduct.save();
-            const updatedSeller = await seller.save();
-            res.status(201).send(product);
-            } catch (error) {
-            res.status(400).send({ message: error.message });
-            }
-        } else if (seller.type === "Expert") {
-            const newProduct = new Product({
-            name: req.body.name,
-            description: req.body.description,
-            id_category: req.body.id_category,
-            id_seller: id_seller,
-            price: req.body.price,
-            picture: req.files[0].filename,
-            isBuyed: false,
-            });
-
-            seller.productsCount += 1;
-            try {
-            const product = await newProduct.save();
-            const updatedSeller = await seller.save();
-            res.status(201).send("Product Added !");
-            } catch (error) {
-            res.status(400).send({ message: error.message });
-            }
-        } else {
-            res.send("You achieved the limit Please upgrade your Account");
+        // console.log(req.files[0]);
+        var pictures =[]
+        for (let i = 0; i < req.files.length; i++) {
+            pictures.push(req.files[i].filename)
+            
         }
+        // console.log(pictures)
+        const newProduct = new Product({
+            name: req.body.name,
+            description: req.body.description,
+            id_category: req.body.id_category,
+            id_seller: id_seller,
+            price: req.body.price,
+            picture: pictures,
+        });
+        try {
+            const product = await newProduct.save();
+            res.status(201).send(product);
+        } catch (error) {
+            res.status(400).send({ message: error.message });
+        }
+        
+        
     };
 
     async getAllProducts(req, res, next)  {

@@ -9,7 +9,7 @@ export default  function Info(props) {
 
             <div className="col-md-11 rounded shadow-lg p-4 row personel-info bg-white m-5">
                 <div className="col-md-4">
-                    <img src="../azou2.jfif" className="img-fluid rounded-circle " alt="sqd"/>
+                    <img src="../user.png" className="img-fluid rounded-circle " alt="sqd"/>
                 </div>
                     {
                         findUser ?

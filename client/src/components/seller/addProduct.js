@@ -1,9 +1,11 @@
 import React from 'react'
+import {useHistory} from 'react-router-dom'
 import { ErrorMessage, Formik, Form, Field } from 'formik';
 import axios from 'axios'
 
 
 export default function AddProduct(props) {
+    const history = useHistory()
     const { category } = props
     console.log(category);
     const [picture, setPicture] = React.useState({})
@@ -40,6 +42,8 @@ export default function AddProduct(props) {
         )
             .then(response => {
                 console.log(response);
+                history.push('/seller-dashboard/all-product')
+
             })
             .catch(err => console.log(err.response.data))
     }

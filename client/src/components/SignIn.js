@@ -33,6 +33,7 @@ export default function SignIn() {
             axios.post(process.env.REACT_APP_URL + 'user/signin', data)
                 .then(response => {
                     localStorage.setItem('token', response.data.token);
+                    localStorage.setItem('currency', response.data.devise);
                     history.push('/')
                 }).catch(err => {
                     toast.error('email or password incorrect')

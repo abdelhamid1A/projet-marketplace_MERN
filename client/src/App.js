@@ -17,6 +17,7 @@ import Prd from './components/prd';
 import {Switch,Route,BrowserRouter} from 'react-router-dom'
 import {Provider} from 'react-redux'
 import store from './components/store/store'
+import Bid from './Bid';
 
 
 function App() {
@@ -40,6 +41,7 @@ function App() {
           <Route path='/login-Admin' component={LoginAdmin}/>
           <Route path='/cart' component={Cart}/>
           <Route path='/prd/:id' component={Prd}/>
+          <Route path='/bid' component={Bid}/>
           
 
         </Switch>
